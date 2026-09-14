@@ -21,7 +21,11 @@ $SupabaseKey = if ($env:SUPABASE_KEY) { $env:SUPABASE_KEY } else {
   exit 1
 }
 
+$SupabaseKey = $SupabaseKey.Trim()
+
 Write-Host "Waking Supabase"
+Write-Host "URL: $SupabaseUrl"
+Write-Host "Key length: $($SupabaseKey.Length)"
 
 $headers = @{
     "apikey"        = $SupabaseKey
