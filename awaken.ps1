@@ -9,6 +9,8 @@
 
 $ErrorActionPreference = "Stop"
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 -bor [Net.SecurityProtocolType]::Tls13
+
 # Config 
 $SupabaseUrl = if ($env:SUPABASE_URL) { $env:SUPABASE_URL } else {
   Write-Error "No SUPABASE URL configured"
